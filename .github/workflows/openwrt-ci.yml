@@ -53,6 +53,12 @@ jobs:
 
           df -h
 
+      - name: Sync lede code
+        run: |
+          git remote add openwrt https://github.com/coolsnowwolf/lede.git
+          git pull openwrt master
+          git remote -v
+
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
